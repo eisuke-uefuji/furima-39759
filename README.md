@@ -39,10 +39,8 @@
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
-| price               | string | null: false |
 | user   | references | null: false, foreign_key: true |
-| deliver  | references | null: false, foreign_key: true |
-| item  | references | null: false, foreign_key: true |
+| item   | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :item
