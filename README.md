@@ -28,7 +28,7 @@
 | condition_id            | integer | null: false |
 | delivery_charge_id      | integer | null: false |
 | shipping_span_id        | integer | null: false |
-| shipping_area_id        | integer | null: false |
+| prefecture_id           | integer | null: false |
 | user                    | references | null: false, foreign_key: true |
 
 ### Association
@@ -53,7 +53,7 @@
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
 | post_number         | string | null: false |
-| prefecture          | integer | null: false |
+| prefecture_id       | integer | null: false |
 | city                | string | null: false |
 | street_line         | string | null: false |
 | building            | string | null: false |
