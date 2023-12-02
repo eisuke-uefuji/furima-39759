@@ -21,14 +21,15 @@
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
-| name                  | string | null: false |
-| condition             | string | null: false |
-| delivery_charge       | string | null: false |
-| shipping_span         | string | null: false |
-| shipping_area          | string | null: false |
-| image                 | string | null: false |
-| user   | references | null: false, foreign_key: true |
-| purchase  | references | null: false, foreign_key: true |
+| name                    | string  | null: false |
+| category_id             | integer | null: false |
+| condition_id            | integer | null: false |
+| delivery_charge_id      | integer | null: false |
+| shipping_span_id        | integer | null: false |
+| shipping_area_id        | integer | null: false |
+| image                   | string | null: false |
+| user                    | references | null: false, foreign_key: true |
+| purchase                | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
