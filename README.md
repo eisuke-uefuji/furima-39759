@@ -51,9 +51,13 @@
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
-| address               | string | null: false |
-| post_number            | string | null: false |
-| item  | references | null: false, foreign_key: true |
+| post_number         | string | null: false |
+| prefecture          | integer | null: false |
+| city                | string | null: false |
+| street_line         | string | null: false |
+| building            | string | null: false |
+| phone_number        | string | null: false |
+| purchase            | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :purchase
