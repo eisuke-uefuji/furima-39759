@@ -9,7 +9,7 @@
 | firstname_kanji        | string | null: false |
 | familyname_kana        | string | null: false |
 | firstname_kana         | string | null: false |
-| birthdate              | string | null: false |
+| birthdate              | date | null: false |
 
 
 ### Association
