@@ -15,7 +15,6 @@
 ### Association
 - has_many :items
 - has_many :purchases
-- has_many :delivers
 
 
 ## itemsテーブル
@@ -55,9 +54,7 @@
 | ------ | ---------- | ------------------------------ |
 | address               | string | null: false |
 | post_number            | string | null: false |
-| user   | references | null: false, foreign_key: true |
 | item  | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :user
 - belongs_to :purchase
