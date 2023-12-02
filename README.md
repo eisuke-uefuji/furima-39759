@@ -22,6 +22,8 @@
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
 | name                    | string  | null: false |
+| item_summary            | text    | null: false |
+| price                   | integer | null: false |
 | category_id             | integer | null: false |
 | condition_id            | integer | null: false |
 | delivery_charge_id      | integer | null: false |
