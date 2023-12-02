@@ -4,7 +4,6 @@
 | ------ | ----------  | ------------------------------ |
 | nickname             | string | null: false |
 | email               | string | null: false, unique:true |
-| password             | string | null: false |
 | encrypted_password   | string | null: false |
 | name_kana            | string | null: false |
 | name_full-width      | string | null: false |
