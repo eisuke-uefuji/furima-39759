@@ -51,6 +51,14 @@ RSpec.describe User, type: :model do
         @user.password_confirmation = 'aaaaaa'
         @user.valid?
         expect(@user.errors.full_messages).to include("Password は半角英数字混合で入力してください")
+        @user.password = '000000'
+        @user.password_confirmation = '000000'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Password は半角英数字混合で入力してください")
+        @user.password = '００００００'
+        @user.password_confirmation = '００００００ '
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Password は半角英数字混合で入力してください")
       end
       it 'password_confirmationが空では登録できない' do
         @user.password_confirmation = ''
