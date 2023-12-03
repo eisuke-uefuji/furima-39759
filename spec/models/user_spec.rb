@@ -99,9 +99,15 @@ RSpec.describe User, type: :model do
         @user.familyname_kana = '上藤'
         @user.valid?
         expect(@user.errors.full_messages).to include("Familyname kana is invalid")
+        @user.familyname_kana = 'aaaaa'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Familyname kana is invalid")
       end
       it '名前カナ全角がカタカナ以外では登録できない' do
         @user.firstname_kana = '英資'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Firstname kana is invalid")
+        @user.firstname_kana = 'aaaa'
         @user.valid?
         expect(@user.errors.full_messages).to include("Firstname kana is invalid")
       end
