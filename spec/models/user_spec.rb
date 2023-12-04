@@ -46,17 +46,21 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("Password is too short (minimum is 6 characters)")
       end
-      it 'passwordが半角英数字混合でなければ、登録できない' do
+      it 'passwordが半角英字のみでは、登録できない' do
         @user.password = 'aaaaaa'
         @user.password_confirmation = 'aaaaaa'
         @user.valid?
         expect(@user.errors.full_messages).to include("Password は半角英数字混合で入力してください")
+      end
+      it 'passwordが半角数字のみでは、登録できない' do
         @user.password = '000000'
         @user.password_confirmation = '000000'
         @user.valid?
         expect(@user.errors.full_messages).to include("Password は半角英数字混合で入力してください")
-        @user.password = '００００００'
-        @user.password_confirmation = '００００００ '
+      end
+      it 'passwordが全角のみでは、登録できない' do
+        @user.password = '０あ００００'
+        @user.password_confirmation = '０あ００００ '
         @user.valid?
         expect(@user.errors.full_messages).to include("Password は半角英数字混合で入力してください")
       end
@@ -99,6 +103,8 @@ RSpec.describe User, type: :model do
         @user.familyname_kana = '上藤'
         @user.valid?
         expect(@user.errors.full_messages).to include("Familyname kana is invalid")
+      end
+      it '苗字カナ全角が半角では登録できない' do
         @user.familyname_kana = 'aaaaa'
         @user.valid?
         expect(@user.errors.full_messages).to include("Familyname kana is invalid")
@@ -107,6 +113,8 @@ RSpec.describe User, type: :model do
         @user.firstname_kana = '英資'
         @user.valid?
         expect(@user.errors.full_messages).to include("Firstname kana is invalid")
+      end
+      it '名前カナ全角が半角では登録できない' do
         @user.firstname_kana = 'aaaa'
         @user.valid?
         expect(@user.errors.full_messages).to include("Firstname kana is invalid")
