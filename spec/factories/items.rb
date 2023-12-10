@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :item do
     name  { Faker::Commerce.product_name }
     item_summary { Faker::Lorem.sentence }
-    price { rand(300..9999999)}
+    price { rand(300..9_999_999) }
     association :user
     category_id { rand(2..Category.count) }
     condition_id { rand(2..Condition.count) }
@@ -14,6 +14,5 @@ FactoryBot.define do
       image_path = '/home/eisukeuefuji/projects/furima-39759/app/assets/images/card-visa.gif'
       item.image.attach(io: File.open(image_path), filename: 'card-visa.gif', content_type: 'image/gif')
     end
-
   end
 end

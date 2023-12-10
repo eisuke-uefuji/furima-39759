@@ -9,10 +9,10 @@ class Item < ApplicationRecord
   has_one_attached :image
   has_one :purchase
 
-  validates :name, presence:  { message: "商品名を入力してください" }
-  validates :item_summary, presence:  { message: "商品の概要を入力してください" }
-  validates :price, presence:  { message: "価格を入力してください" }
-  validates :image, presence:  { message: "画像をアップロードしてください" }
-  validates :category_id, :condition_id, :delivery_charge_id, :shipping_span_id, :prefecture_id, numericality: { other_than: 1 ,message: "can`t be blank"}
-
+  validates :name, presence: { message: '商品名を入力してください' }
+  validates :item_summary, presence: { message: '商品の概要を入力してください' }
+  validates :price, presence:  { message: '価格を入力してください' }
+  validates :image, presence:  { message: '画像をアップロードしてください' }
+  validates :category_id, :condition_id, :delivery_charge_id, :shipping_span_id, :prefecture_id,
+            numericality: { other_than: 1, message: 'can`t be blank' }
 end
