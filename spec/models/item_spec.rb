@@ -21,6 +21,11 @@ RSpec.describe Item, type: :item do
         @item.valid?
         expect(@item.errors.full_messages).to include('Price 価格を入力してください')
       end
+      it '商品の説明が空では登録できない' do
+        @item.item_summary = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Item summary 商品の概要を入力してください')
+      end
       it 'カテゴリが空では登録できない' do
         @item.category_id = ''
         @item.valid?
@@ -72,7 +77,7 @@ RSpec.describe Item, type: :item do
         expect(@item.errors.full_messages).to include('Prefecture ----以外を選択してください。')
       end
       it '発送までの日数に「---」が選択されている場合は出品できない' do
-        @item.shipping_span_id = ''
+        @item.shipping_span_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Shipping span ----以外を選択してください。')
       end
