@@ -92,7 +92,7 @@ RSpec.describe Item, type: :item do
         expect(@item.errors.full_messages).to include('Price 販売価格は¥300から¥9,999,999の間でなければなりません')
       end
       it '価格が9_999_999円を超えると出品できない' do
-        @item.price = 10000000
+        @item.price = 10_000_000
         @item.valid?
         expect(@item.errors.full_messages).to include('Price 販売価格は¥300から¥9,999,999の間でなければなりません')
       end
