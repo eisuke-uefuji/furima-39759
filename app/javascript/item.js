@@ -9,6 +9,12 @@ function item (){
     priceProfit.innerHTML = Math.floor(value * 0.9)
   })
 
+  if(priceInput.value){
+    const value = priceInput.value;
+    priceAddTax.innerHTML = Math.floor(value * 0.1)
+    priceProfit.innerHTML = Math.floor(value * 0.9)
+  }
+
 };
 
 window.addEventListener("turbo:load", item);
