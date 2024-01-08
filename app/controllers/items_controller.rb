@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    
+    item_find
   end
 
   def edit
