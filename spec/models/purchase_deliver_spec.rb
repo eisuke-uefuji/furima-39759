@@ -48,10 +48,10 @@ RSpec.describe PurchaseDeliver, type: :model do
         @purchase_deliver.valid?
         expect(@purchase_deliver.errors.full_messages).to include("Phone number can't be blank", "Phone number 電話番号は必須です")
       end
-      it 'purchase_idが空だと保存できないこと' do
-        @purchase_deliver.purchase_id = ''
+      it 'tokenが空だと保存できないこと' do
+        @purchase_deliver.token = ''
         @purchase_deliver.valid?
-        expect(@purchase_deliver.errors.full_messages).to include("Purchase can't be blank")
+        expect(@purchase_deliver.errors.full_messages).to include("Token can't be blank")
       end
     end
 

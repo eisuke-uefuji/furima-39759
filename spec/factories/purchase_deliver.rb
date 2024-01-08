@@ -8,5 +8,6 @@ FactoryBot.define do
     building {'ああああ'}
     phone_number {'0900000000'}
     purchase_id { 1 }
+    token {"tok_abcdefghijk00000000000000000"}
   end
 end

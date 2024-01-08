@@ -1,5 +1,6 @@
 const pay = () => {
-  const payjp = Payjp('pk_test_99e69052a04515d1fa77eda5')
+  const publicKey = gon.public_key
+  const payjp = Payjp(publicKey)
   const elements = payjp.elements();
   const numberElement = elements.create('cardNumber');
   const expiryElement = elements.create('cardExpiry');
@@ -15,12 +16,18 @@ const pay = () => {
       if (response.error){
       } else {
         const token = response.id;
-        console.log(token)
+        const renderDom = document.getElementById('charge-form');
+        const token0bj = `<input value=${token} name='token' type="hidden">`;
+        renderDom.insertAdjacentHTML("beforeend", token0bj);
       }
+      numberElement.clear();
+      expiryElement.clear();
+      cvcElement.clear();
+      document.getElementById('charge-form').submit();
     });
     e.preventDefault();
   });
 };
 
 window.addEventListener("turbo:load", pay);
-document.addEventListener("turbo:render", pay);
+window.addEventListener("turbo:render", pay);
