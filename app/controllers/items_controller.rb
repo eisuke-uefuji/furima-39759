@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :move_to_index, except: [:index, :show]
+  before_action :move_to_signin, except: [:index, :show]
   before_action :item_find, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -54,7 +54,7 @@ class ItemsController < ApplicationController
                                  :shipping_span_id, :prefecture_id, :image).merge(user_id: current_user.id)
   end
 
-  def move_to_index
+  def move_to_signin
     return if user_signed_in?
 
     redirect_to new_user_session_path
