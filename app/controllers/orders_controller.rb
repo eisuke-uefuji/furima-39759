@@ -1,10 +1,12 @@
 class OrdersController < ApplicationController
   def index
     @purchase_deliver = PurchaseDeliver.new
+    @item = Item.find(params[:item_id])
   end
 
   def create
     @purchase_deliver = PurchaseDeliver.new(purchase_params)
+    @item = Item.find(params[:item_id])
     if @purchase_deliver.valid?
       @purchase_deliver.save
       redirect_to root_path
