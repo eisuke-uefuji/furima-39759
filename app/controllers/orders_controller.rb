@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   def index
     @item = Item.find(params[:item_id])
-    unless user_signed_in? && @item.purchase == nil 
+    unless user_signed_in? && @item.purchase == nil && current_user != @item.user
       redirect_to new_user_session_path
     end
     gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
