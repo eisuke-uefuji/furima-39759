@@ -1,12 +1,14 @@
 class OrdersController < ApplicationController
   def index
+    @item = Item.find(params[:item_id])
+    unless user_signed_in? && @item.purchase == nil 
+      redirect_to new_user_session_path
+    end
     gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
     @purchase_deliver = PurchaseDeliver.new
-    @item = Item.find(params[:item_id])
   end
 
   def create
-
     @purchase_deliver = PurchaseDeliver.new(purchase_params)
     @item = Item.find(params[:item_id])
     if @purchase_deliver.valid?
