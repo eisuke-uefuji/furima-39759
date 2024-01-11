@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   def index
-    @item = Item.find(params[:item_id])
+    item_find
     unless user_signed_in? && @item.purchase == nil && current_user != @item.user
       redirect_to new_user_session_path
     end
@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
 
   def create
     @purchase_deliver = PurchaseDeliver.new(purchase_params)
-    @item = Item.find(params[:item_id])
+    item_find
     if @purchase_deliver.valid?
       pay_item
       @purchase_deliver.save
@@ -22,6 +22,10 @@ class OrdersController < ApplicationController
   end
 
   private
+  def item_find
+    @item = Item.find(params[:item_id])
+  end
+  
   def purchase_params
     params.require(:purchase_deliver).permit(:post_number, :prefecture_id, :city, :street_line, :building, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
   end

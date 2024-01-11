@@ -8,7 +8,6 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one :purchase
   has_one_attached :image
-  # has_one :purchase
 
   validates :name, presence: { message: '商品名を入力してください' }
   validates :item_summary, presence: { message: '商品の概要を入力してください' }

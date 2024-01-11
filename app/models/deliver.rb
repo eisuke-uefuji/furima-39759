@@ -1,3 +1,3 @@
 class Deliver < ApplicationRecord
-  belongs_to :deliver
+  belongs_to :purchase
 end
