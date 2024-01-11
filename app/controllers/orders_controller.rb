@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
+  before_action :item_find, only: [:index, :create]
+  
   def index
-    item_find
     unless user_signed_in? && @item.purchase == nil && current_user != @item.user
       redirect_to new_user_session_path
     end
