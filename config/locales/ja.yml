@@ -1,0 +1,14 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        familyname_kana: 苗字カナ
+        firstname_kana: 名前カナ
+        birthdate: 誕生日
+        familyname_kanji: 苗字
+        firstname_kanji: 名前
+
+      tweet:
+        text: テキスト
+        image: 画像
